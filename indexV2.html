@@ -3,724 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Bruechner - Software Engineer</title>
+    <title>Joseph Bruechner - Data Portfolio for xAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
-        
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 40px;
-        }
-        
-        /* Header */
-        .header {
-            padding: 60px 0 80px;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-        
-        .header h1 { 
-            font-size: 3.5rem; 
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-        
-        .header .tagline { 
-            font-size: 1.2rem; 
-            color: #999;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-        
-        .about h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 60px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            max-width: 1000px;
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
         }
-        
-        .about-item h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #007BFF;
         }
-        
-        .about-item p {
-            color: #ccc;
-            font-size: 0.95rem;
-            line-height: 1.7;
+        h1, h2, h3 {
+            color: #FFFFFF;
         }
-        
-        /* Projects Section */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+            height: 200px;
+            overflow: auto;
+        }
         .projects {
-            padding: 80px 0;
-        }
-        
-        .projects h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 60px;
-            text-align: center;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-        
-        .project-card {
-            background: #111;
-            border: 1px solid #333;
-            padding: 0;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        
-        .project-card:hover {
-            border-color: #666;
-        }
-        
-        .project-header {
-            padding: 30px;
-            border-bottom: 1px solid #333;
-        }
-        
-        .project-header h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .project-header p {
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        .project-demo {
-            height: 600px;
-            background: #000;
-            border-top: 1px solid #333;
-        }
-        
-        .demo-frame {
             width: 100%;
-            height: 100%;
-            border: none;
-            background: #000;
-        }
-        
-        /* Tech Stack */
-        .tech-stack {
-            text-align: center;
-            padding: 60px 0;
-        }
-        
-        .tech-stack h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 30px;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .tech-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .tech-item {
-            color: #999;
-            font-size: 0.9rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Footer */
-        .footer {
-            padding: 60px 0;
-            text-align: center;
-            border-top: 1px solid #333;
-            margin-top: 80px;
-        }
-        
-        .footer p {
-            color: #666;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .header h1 { font-size: 2.5rem; }
-            .projects-grid { 
-                grid-template-columns: 1fr; 
-                gap: 40px; 
-            }
-            .project-demo { height: 500px; }
-            .about-grid { gap: 30px; }
-            .tech-grid { gap: 20px; }
-        }
-        
-        /* Loading overlay for iframes */
-        .loading-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>Joe Bruechner</h1>
-            <p class="tagline">Software Engineer</p>
-        </header>
-
-        <!-- About Section -->
-        <section class="about">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-item">
-                    <h3>Education</h3>
-                    <p>Computer Science background with focus on systems programming, algorithms, and software engineering principles. Continuous learning in aerospace technologies and real-time systems.</p>
-                </div>
-                
-                <div class="about-item">
-                    <h3>Experience</h3>
-                    <p>Specialized in C++ development, parallel processing, and automation systems. Experience with thread-safe programming, data validation, and real-time monitoring applications.</p>
-                </div>
-                
-                <div class="about-item">
-                    <h3>Background</h3>
-                    <p>Passion for aerospace technology and space exploration. Developed simulation tools and automation systems that mirror real-world rocket testing and validation processes.</p>
-                </div>
-                
-                <div class="about-item">
-                    <h3>Motivation</h3>
-                    <p>Driven to contribute to the future of space exploration through reliable, efficient software systems. Committed to building tools that enable safer and more efficient aerospace operations.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Test Stand Demo -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Test Stand Automation Tool</h3>
-                        <p>C++ console application for rocket engine sensor validation</p>
-                    </div>
-                    <div class="project-demo">
-                        <div class="loading-overlay">Loading Demo...</div>
-                        <iframe 
-                            class="demo-frame" 
-                            src="data:text/html;charset=utf-8,<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Test Stand Demo</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Courier New', monospace; 
-            background: #000;
-            color: #00ff00; 
             padding: 20px;
-            height: 100vh;
-            overflow: hidden;
+            background: #2c2c2c;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+            margin-top: 20px;
         }
-        .mini-container { height: 100%; display: flex; flex-direction: column; }
-        .mini-controls { 
-            display: flex; 
-            gap: 10px; 
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+        .project {
+            margin: 15px 0;
+            padding: 10px;
+            background: #3c3c3c;
+            border-radius: 5px;
         }
-        .mini-btn { 
-            background: #333; 
-            color: #00ff00; 
-            border: 1px solid #555; 
-            padding: 8px 12px; 
-            font-family: inherit;
-            font-size: 12px;
-            cursor: pointer; 
-            transition: all 0.2s;
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 10px 0;
         }
-        .mini-btn:hover { background: #555; }
-        .mini-btn:disabled { background: #222; color: #666; cursor: not-allowed; }
-        .mini-stats { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 10px; 
-            margin-bottom: 15px;
+        .badges img {
+            margin-right: 5px;
         }
-        .mini-stat { 
-            text-align: center; 
-            padding: 8px; 
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid #333;
-            font-size: 11px;
+        a {
+            color: #007BFF;
+            text-decoration: none;
         }
-        .mini-stat-value { font-size: 14px; font-weight: bold; margin-bottom: 3px; }
-        .mini-terminal { 
-            background: #111; 
-            border: 1px solid #333; 
-            padding: 15px; 
-            flex: 1;
-            overflow-y: auto;
-            font-size: 11px;
-            line-height: 1.4;
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 5px;
+        }
+        .contact a {
+            margin: 0 10px;
+        }
+        @media (max-width: 600px) {
+            .card {
+                min-width: 100%;
+                height: auto;
+            }
+            .projects {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class='mini-container'>
-        <div class='mini-controls'>
-            <button class='mini-btn' onclick='generateData()'>Generate Data</button>
-            <button class='mini-btn' onclick='runValidation()'>Run Validation</button>
-            <button class='mini-btn' onclick='resetSystem()'>Reset</button>
+    <header>
+        <h1>Joseph Bruechner</h1>
+        <p>Data Professional | Machine Learning & Analytics</p>
+    </header>
+
+    <div class="card-container">
+        <div class="card" id="about">
+            <h2>About</h2>
+            <p>Experienced data professional with 2+ years in ML and analytics, skilled in Python, SQL, and cloud platforms. Passionate about AI’s role in advancing discovery, aligning with xAI’s mission.</p>
         </div>
-        
-        <div class='mini-stats'>
-            <div class='mini-stat'>
-                <div class='mini-stat-value' id='validCount'>-</div>
-                <div>Valid</div>
-            </div>
-            <div class='mini-stat'>
-                <div class='mini-stat-value' id='totalCount'>-</div>
-                <div>Total</div>
-            </div>
-            <div class='mini-stat'>
-                <div class='mini-stat-value' id='anomalyCount'>-</div>
-                <div>Anomalies</div>
-            </div>
-            <div class='mini-stat'>
-                <div class='mini-stat-value' id='avgTemp'>-</div>
-                <div>Avg °C</div>
-            </div>
+        <div class="card" id="background">
+            <h2>Background</h2>
+            <p><strong>Education & Certifications:</strong><br>
+            - <strong>AWS Certified Machine Learning – Specialty:</strong> Comprehensive certification in ML pipeline design, implementation, and optimization; expertise in SageMaker, Comprehend, and Rekognition; passed rigorous exam covering data engineering, EDA, modeling, and operations.<br>
+            - <strong>Stanford Online Specialization: ML & NLP:</strong> Advanced coursework in ML fundamentals and NLP techniques; projects in sentiment analysis, text classification, and named entity recognition; mastered word embeddings, sequence models, and transformers.<br>
+            - <strong>Tableau Desktop Certified:</strong> Skilled in creating data visualizations and interactive dashboards; proficient in data connections, calculations, and advanced design principles.<br>
+            - <strong>Power BI Data Analyst:</strong> Mastered business intelligence and reporting with DAX, data modeling, and visualization design; experienced in enterprise-grade solutions.<br>
+            - <strong>AWS Cloud Practitioner:</strong> Foundational knowledge of cloud architecture, security, pricing, and AWS global infrastructure.<br>
+            - <strong>Google Data Analytics:</strong> Trained in data analysis techniques and tools for actionable insights.</p>
         </div>
-        
-        <div class='mini-terminal' id='output'>Test Stand Automation Tool v1.0
-Ready for sensor data validation...
-
-Thresholds:
-- Temperature: 0-100°C
-- Pressure: 0-5 bar  
-- Thrust: 0-2000 kN
-
-Generate sample data to begin testing.</div>
-    </div>
-
-    <script>
-        let sensorData = [];
-        let validationResults = [];
-
-        function log(msg) {
-            const output = document.getElementById('output');
-            output.textContent += '\\n' + msg;
-            output.scrollTop = output.scrollHeight;
-        }
-
-        function generateData() {
-            log('> Generating 100 sensor readings...');
-            sensorData = [];
-            
-            for (let i = 0; i < 100; i++) {
-                const anomaly = Math.random() < 0.05;
-                let temp = anomaly ? 110 + Math.random() * 40 : Math.max(0, Math.min(100, 50 + (Math.random() - 0.5) * 30));
-                let pressure = anomaly ? 6 + Math.random() * 2 : Math.max(0, Math.min(5, 3 + (Math.random() - 0.5) * 2));
-                let thrust = anomaly ? 2100 + Math.random() * 400 : Math.max(0, Math.min(2000, 1000 + (Math.random() - 0.5) * 400));
-                
-                sensorData.push({
-                    temperature: parseFloat(temp.toFixed(1)),
-                    pressure: parseFloat(pressure.toFixed(1)),
-                    thrust: parseFloat(thrust.toFixed(1))
-                });
-            }
-            
-            log('✓ Generated ' + sensorData.length + ' sensor readings');
-            document.getElementById('totalCount').textContent = sensorData.length;
-        }
-
-        function runValidation() {
-            if (sensorData.length === 0) {
-                log('⚠ No data to validate');
-                return;
-            }
-
-            log('> Starting validation...');
-            
-            let validCount = 0, anomalyCount = 0;
-            let tempSum = 0, pressureSum = 0, thrustSum = 0;
-
-            sensorData.forEach(data => {
-                const tempValid = data.temperature >= 0 && data.temperature <= 100;
-                const pressureValid = data.pressure >= 0 && data.pressure <= 5;
-                const thrustValid = data.thrust >= 0 && data.thrust <= 2000;
-                const isValid = tempValid && pressureValid && thrustValid;
-                
-                if (isValid) validCount++;
-                else anomalyCount++;
-                
-                tempSum += data.temperature;
-                pressureSum += data.pressure;
-                thrustSum += data.thrust;
-            });
-
-            document.getElementById('validCount').textContent = validCount;
-            document.getElementById('anomalyCount').textContent = anomalyCount;
-            document.getElementById('avgTemp').textContent = (tempSum / sensorData.length).toFixed(1);
-
-            log('✓ Validation complete');
-            log('Test Report:');
-            log(validCount + '/' + sensorData.length + ' sensors valid');
-            log('Avg Temp: ' + (tempSum / sensorData.length).toFixed(2) + ' °C');
-            log('Avg Pressure: ' + (pressureSum / sensorData.length).toFixed(3) + ' bar');
-            log('Avg Thrust: ' + (thrustSum / sensorData.length).toFixed(2) + ' kN');
-            log('Anomalies: ' + anomalyCount);
-        }
-
-        function resetSystem() {
-            log('> Resetting test stand...');
-            sensorData = [];
-            validationResults = [];
-            
-            ['validCount', 'totalCount', 'anomalyCount', 'avgTemp'].forEach(id => {
-                document.getElementById(id).textContent = '-';
-            });
-            
-            log('✓ Reset complete, ready for new test run');
-        }
-    </script>
-</body>
-</html>"
-                            onload="this.previousElementSibling.style.display='none'">
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Rocket Simulator Demo -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Rocket Test Simulator</h3>
-                        <p>Real-time engine monitoring with safety protocols</p>
-                    </div>
-                    <div class="project-demo">
-                        <div class="loading-overlay">Loading Demo...</div>
-                        <iframe 
-                            class="demo-frame" 
-                            src="data:text/html;charset=utf-8,<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Rocket Simulator Demo</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Courier New', monospace; 
-            background: #000;
-            color: #00ff00; 
-            padding: 20px;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .mini-container { height: 100%; display: flex; flex-direction: column; }
-        .mini-controls { 
-            display: flex; 
-            gap: 8px; 
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        .mini-btn { 
-            background: #333; 
-            color: #00ff00; 
-            border: 1px solid #555; 
-            padding: 6px 10px; 
-            font-family: inherit;
-            font-size: 11px;
-            cursor: pointer; 
-            transition: all 0.2s;
-        }
-        .mini-btn:hover { background: #555; }
-        .mini-btn:disabled { background: #222; color: #666; }
-        .mini-btn.danger { background: #660000; color: #ff6666; }
-        .mini-btn.danger:hover { background: #880000; }
-        .mini-status { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 8px; 
-            margin-bottom: 15px;
-        }
-        .mini-stat { 
-            text-align: center; 
-            padding: 6px; 
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid #333;
-            font-size: 10px;
-        }
-        .mini-stat-value { font-size: 12px; font-weight: bold; margin-bottom: 2px; }
-        .safe { color: #51cf66; }
-        .warning { color: #ffd43b; }
-        .danger { color: #ff6b6b; }
-        .mini-terminal { 
-            background: #111; 
-            border: 1px solid #333; 
-            padding: 12px; 
-            flex: 1;
-            overflow-y: auto;
-            font-size: 10px;
-            line-height: 1.3;
-        }
-        .reading-count { 
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            background: rgba(0, 204, 255, 0.2);
-            padding: 4px 8px;
-            font-size: 10px;
-            color: #00ccff;
-        }
-    </style>
-</head>
-<body>
-    <div class='mini-container'>
-        <div class='mini-controls'>
-            <button class='mini-btn' id='startBtn' onclick='startTest()'>🚀 Start</button>
-            <button class='mini-btn' id='stopBtn' onclick='stopTest()' disabled>⏹️ Stop</button>
-            <button class='mini-btn danger' id='emergencyBtn' onclick='emergencyStop()' disabled>🚨 Emergency</button>
-            <button class='mini-btn' onclick='resetTest()'>🔄 Reset</button>
-        </div>
-        
-        <div class='mini-status'>
-            <div class='mini-stat'>
-                <div class='mini-stat-value safe' id='tempValue'>25.0</div>
-                <div>Temp (°C)</div>
-            </div>
-            <div class='mini-stat'>
-                <div class='mini-stat-value safe' id='pressureValue'>1.0</div>
-                <div>Pressure</div>
-            </div>
-            <div class='mini-stat'>
-                <div class='mini-stat-value safe' id='thrustValue'>0</div>
-                <div>Thrust (N)</div>
-            </div>
-            <div class='mini-stat'>
-                <div class='mini-stat-value safe' id='statusValue'>READY</div>
-                <div>Status</div>
-            </div>
-        </div>
-        
-        <div class='mini-terminal' id='output' style='position: relative;'>
-            <div class='reading-count' id='readingCount'>Reading: 0</div>
-Rocket Test Simulator v1.0
-System ready for testing.
-
-Safety thresholds:
-- Temperature: 0-100°C  
-- Pressure: 0-5.0 bar
-- Thrust: 500-3000 N
-
-Press Start to begin simulation...
+        <div class="card" id="motivation">
+            <h2>Motivation</h2>
+            <p>Driven by AI’s potential to unlock universal truths. Excited to contribute to xAI’s innovative mission and grow through challenging projects.</p>
         </div>
     </div>
 
-    <script>
-        let isRunning = false;
-        let readingCount = 0;
-        let interval;
-
-        function log(msg) {
-            const output = document.getElementById('output');
-            const timestamp = new Date().toLocaleTimeString();
-            output.textContent += '\\n[' + timestamp + '] ' + msg;
-            output.scrollTop = output.scrollHeight;
-        }
-
-        function updateDisplay(temp, pressure, thrust, status) {
-            document.getElementById('tempValue').textContent = temp.toFixed(1);
-            document.getElementById('pressureValue').textContent = pressure.toFixed(1);
-            document.getElementById('thrustValue').textContent = Math.round(thrust);
-            document.getElementById('statusValue').textContent = status;
-            document.getElementById('readingCount').textContent = 'Reading: ' + readingCount;
-            
-            const tempEl = document.getElementById('tempValue');
-            const pressureEl = document.getElementById('pressureValue');
-            const thrustEl = document.getElementById('thrustValue');
-            const statusEl = document.getElementById('statusValue');
-            
-            tempEl.className = 'mini-stat-value ' + (temp > 100 ? 'danger' : 'safe');
-            pressureEl.className = 'mini-stat-value ' + (pressure > 5 ? 'danger' : 'safe');
-            thrustEl.className = 'mini-stat-value ' + ((thrust < 500 || thrust > 3000) ? 'warning' : 'safe');
-            statusEl.className = 'mini-stat-value ' + (status.includes('ALERT') ? 'danger' : 'safe');
-        }
-
-        function generateReading() {
-            const temp = 20 + Math.random() * 80 + (Math.random() < 0.05 ? 20 + Math.random() * 30 : 0);
-            const pressure = 1 + Math.random() * 4 + (Math.random() < 0.05 ? 1 + Math.random() * 3 : 0);
-            const thrust = 800 + Math.random() * 1500 + (Math.random() < 0.05 ? (Math.random() > 0.5 ? 1000 : -400) : 0);
-            return { temp, pressure, thrust };
-        }
-
-        function checkSafety(temp, pressure, thrust) {
-            const issues = [];
-            if (temp > 100) issues.push('OVERHEATING');
-            if (pressure > 5) issues.push('OVERPRESSURE');
-            if (thrust < 500 || thrust > 3000) issues.push('THRUST_ANOMALY');
-            return issues;
-        }
-
-        function runStep() {
-            if (!isRunning) return;
-            
-            readingCount++;
-            const { temp, pressure, thrust } = generateReading();
-            const issues = checkSafety(temp, pressure, thrust);
-            let status = 'NOMINAL';
-            
-            if (issues.length > 0) {
-                status = 'ALERT: ' + issues.join(', ');
-                if (issues.includes('OVERHEATING')) {
-                    log('🔥 ALERT: Overheating! Temp: ' + temp.toFixed(1) + '°C');
-                }
-                if (issues.includes('OVERPRESSURE')) {
-                    log('💥 ALERT: Overpressure! Pressure: ' + pressure.toFixed(1) + ' bar');
-                }
-                if (temp > 120 || pressure > 7) {
-                    log('🚨 CRITICAL - Emergency stop initiated');
-                    emergencyStop();
-                    return;
-                }
-            }
-            
-            updateDisplay(temp, pressure, thrust, status);
-            log('Reading ' + readingCount + ': ' + temp.toFixed(1) + '°C, ' + pressure.toFixed(1) + ' bar, ' + thrust.toFixed(0) + ' N' + (status !== 'NOMINAL' ? ' - ' + status : ''));
-        }
-
-        function startTest() {
-            isRunning = true;
-            readingCount = 0;
-            document.getElementById('startBtn').disabled = true;
-            document.getElementById('stopBtn').disabled = false;
-            document.getElementById('emergencyBtn').disabled = false;
-            
-            log('🚀 Starting rocket test simulation...');
-            interval = setInterval(runStep, 1000);
-        }
-
-        function stopTest() {
-            isRunning = false;
-            clearInterval(interval);
-            document.getElementById('startBtn').disabled = false;
-            document.getElementById('stopBtn').disabled = true;
-            document.getElementById('emergencyBtn').disabled = true;
-            
-            log('⏹️ Test stopped. Readings: ' + readingCount);
-        }
-
-        function emergencyStop() {
-            isRunning = false;
-            clearInterval(interval);
-            document.getElementById('startBtn').disabled = false;
-            document.getElementById('stopBtn').disabled = true;
-            document.getElementById('emergencyBtn').disabled = true;
-            
-            log('🚨 EMERGENCY STOP ACTIVATED');
-            log('⚠️ All systems shut down for safety');
-        }
-
-        function resetTest() {
-            stopTest();
-            readingCount = 0;
-            updateDisplay(25, 1.0, 0, 'READY');
-            document.getElementById('output').textContent = 'Rocket Test Simulator v1.0\\nSystem reset and ready.\\n\\nSafety thresholds:\\n- Temperature: 0-100°C\\n- Pressure: 0-5.0 bar\\n- Thrust: 500-3000 N\\n\\nPress Start to begin simulation...';
-        }
-    </script>
-</body>
-</html>"
-                            onload="this.previousElementSibling.style.display='none'">
-                        </iframe>
-                    </div>
-                </div>
+    <div class="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>SaaS Financial Analytics Pipeline</h3>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python">
+                <img src="https://img.shields.io/badge/BigQuery-1.0+-green.svg" alt="BigQuery">
+                <img src="https://img.shields.io/badge/Looker-8.0+-orange.svg" alt="Looker">
             </div>
-
-            <!-- Tech Stack -->
-            <div class="tech-stack">
-                <h3>Technologies</h3>
-                <div class="tech-grid">
-                    <div class="tech-item">C++17</div>
-                    <div class="tech-item">Multi-threading</div>
-                    <div class="tech-item">CSV Processing</div>
-                    <div class="tech-item">Real-time Systems</div>
-                    <div class="tech-item">Data Validation</div>
-                    <div class="tech-item">Safety Protocols</div>
-                </div>
+            ![Financial Analysis Dashboard](https://github.com/user-attachments/assets/da1ae212-c5ea-4604-a392-780aa3d6c7bb)
+            <p>Designed and implemented a scalable pipeline to process and analyze SaaS financial data, ensuring high data integrity with automated validation checks. Utilized BigQuery for efficient data storage and Looker for real-time dashboard visualization, improving decision-making for financial teams by 15% through optimized data workflows.</p>
+        </div>
+        <div class="project">
+            <h3>Healthcare Length of Stay Optimization</h3>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
+                <img src="https://img.shields.io/badge/Pandas-1.3+-green.svg" alt="Pandas">
             </div>
-        </section>
+            ![Feature Importance](https://github.com/user-attachments/assets/35d305f8-0d70-45d9-a2b1-b80c715b5d1f)
+            <p>Developed a predictive model using Ridge Regression to optimize hospital length of stay, reducing average stay by 10% through analysis of patient data. Identified key features like admission type and comorbidities, with the model deployed on AWS for real-time insights, enhancing resource allocation.</p>
+        </div>
+        <div class="project">
+            <h3>Bitcoin Price Prediction</h3>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
+                <img src="https://img.shields.io/badge/TensorFlow-2.6+-orange.svg" alt="TensorFlow">
+            </div>
+            https://github.com/brueshi/Bitcoin-Price-Prediction/blob/main/prediction.png
+            https://github.com/brueshi/Bitcoin-Price-Prediction/blob/main/prediction_vs_actual.png
+            <p>Built a deep learning model with TensorFlow to forecast Bitcoin prices, achieving 85% accuracy for 1-hour-ahead predictions. Trained on 3 years of historical data, the model incorporated LSTM networks and technical indicators, providing actionable insights for crypto traders with a user-friendly interface.</p>
+        </div>
+        <div class="project">
+            <h3>ML Model Evaluation Framework</h3>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python">
+            </div>
+            <p>Engineered a flexible framework using Scikit-learn to evaluate and compare multiple ML models, supporting regression, classification, and clustering tasks. Integrated cross-validation and hyperparameter tuning, reducing model selection time by 30% and improving performance metrics across diverse datasets.</p>
+        </div>
+    </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>© 2025 Joe Bruechner • Software Engineer</p>
-        </footer>
+    <div class="contact">
+        <h2>Contact</h2>
+        <a href="https://github.com/brueshi">GitHub</a>
+        <a href="mailto:bruechnerjoseph@gmail.com">Email</a>
+        <a href="https://x.com/joebruechner">X (@joebruechner)</a>
+        <a href="https://www.linkedin.com/in/josephbruechner">LinkedIn</a>
     </div>
 </body>
-</html>"
+</html>
